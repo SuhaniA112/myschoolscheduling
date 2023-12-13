@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        body, h1, p, ul {
+         margin: 0;
+         padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    ul.options-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .survey-container {
+         max-width: 900px;
+         margin: 0 auto;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+    }
+
+    .question {
+         font-weight: bold;
+         margin-bottom: 10px;
+         font-size: 18px;
+    }
+
+     .response {
+         margin-bottom: 5px;
+     }
+     .styled-button {
+         background-color: #0086AD;
+         color: white;
+         width: 110px;
+         border: 1px solid #000000;
+         padding: 10px 20px;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+     }
+     .styled-button:hover {
+         background-color: rgba(0, 134, 173, 0.7);
+         color: black;
+         font-weight: bold;
+     }
+     .header {
+         background-color: #0086AD;
+         color: white;
+         text-align: center;
+         padding: 20px 0;
+     }
+     .menu ul {
+         list-style: none;
+         display: flex;
+         justify-content: center;
+     }
+     .menu li {
+         margin: 0 15px;
+     }
+
+     .menu a {
+         text-decoration: none;
+         color: white;
+         font-weight: bold;
+     }
+
+     .body-content {
+         background-color: #f9f9f9;
+         color: black;
+         font-size: 16px;
+     }
+
+     .footer {
+         background-color: #0086AD;
+         text-align: center;
+         padding: 10px 0;
+     }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <ul>
+                <li><a href="logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="body-content">
+        <br>
+        <div class="survey-container">
+            <form action="/12th_form" method="post">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>9th Grade</th>
+                        <th>10th Grade</th>
+                        <th>11th Grade</th>
+                        <th>12th Grade</th>
+                        <th>Credits</th>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>{{ english9 }}</td>
+                        <td>{{ english_choice }}</td>
+                        <td>
+                            <select name="english">
+                                {% for coursename, courseId in english %}
+                                    {% if courseId == english_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[0] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Social Studies</td>
+                        <td>{{ ss9 }}</td>
+                        <td>{{ socialstudies_choice }}</td>
+                        <td>
+                            <select name="socialstudies">
+                                {% for coursename, courseId in socialstudies %}
+                                    {% if courseId == socialstudies_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[1] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Visual and Performing Arts</td>
+                        <td>{{ art9 }}</td>
+                        <td>{{ art_choice }}</td>
+                        <td>
+                            <select name="art">
+                                {% for coursename, courseId in art %}
+                                    {% if courseId == art_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[2] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Open Humanities</td>
+                        <td>{{ humanities9 }}</td>
+                        <td>{{ humanities_choice }}</td>
+                        <td>
+                            <select name="humanities">
+                                {% for coursename, courseId in humanities %}
+                                    {% if courseId == humanities_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[3] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Math</td>
+                        <td>{{ math9 }}</td>
+                        <td>{{ math_choice }}</td>
+                        <td>
+                            <select name="math">
+                                {% for coursename, courseId in math %}
+                                    {% if courseId == math_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>{{ sci9 }}</td>
+                        <td>{{ science_choice }}</td>
+                        <td>
+                            <select name="science">
+                                {% for coursename, courseId in science %}
+                                    {% if courseId == science_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[5] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Open Steam</td>
+                        <td>{{ steam9 }}</td>
+                        <td>{{ steam_choice }}</td>
+                        <td>
+                            <select name="steam">
+                                {% for coursename, courseId in steam %}
+                                    {% if courseId == steam_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[6] }}</td>
+                    </tr>
+                    <tr>
+                        <td>World Languages</td>
+                        <td>{{ language9 }}</td>
+                        <td>{{ language_choice }}</td>
+                        <td>
+                            <select name="language">
+                                {% for coursename, courseId in language %}
+                                    {% if courseId == language_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[7] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Health and PE</td>
+                        <td>Default (0.75 PE Credit, 0.25 Health Credit)</td>
+                        <td>Default (0.75 PE Credit, 0.25 Health Credit)</td>
+                        <td>Default (0.25 PE Credits, 0.25 Health Credits)<td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Additional Credits</td>
+                        <td>{{ other9 }}</td>
+                        <td>{{ additional_choice }}</td>
+                        <td>
+                            <select name="additional">
+                                {% for coursename, courseId in additional %}
+                                    {% if courseId == additional_default_option %}
+                                        <option value="{{ coursename, courseId }}" selected >{{ coursename }}</option>
+                                    {% else %}
+                                        <option value="{{ coursename, courseId }}">{{ coursename }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td> </td>
+                        <td> {{ credits[8] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Overall</td>
+                        <td>
+                            Requirements Met: {{ reqmet9 }}
+                        </td>
+                        <td>
+                            Requirements Met: {{ reqmet }}
+                        </td>
+                        <td> - </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </table>
+                <br>
+                <a href="/10th_form" class="styled-button">Go Back</a>
+                <button class="styled-button" type="submit">Submit</button>
+            </form>
+            </div>
+        <br>
+    </div>
+    <footer class="footer">
+        <p> </p>
+    </footer>
+</body>
+</html>

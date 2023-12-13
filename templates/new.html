@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, h1, p, ul {
+        margin: 0;
+        padding: 0;
+        }
+        h1.left-align {
+        text-align: left;
+        font-size: 28px;
+        padding-left: 50px;
+        }
+
+        .container {
+            background-color: #0086AD; /* Light Blue */
+            padding: 20px;
+            text-align: center;
+        }
+        .get-started-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+        h1.left-align {
+        text-align: left;
+        font-size: 28px;
+        padding-left: 50px;
+        }
+        .center-text {
+            text-align: center;
+            font-weight: bold; /* Make text bold */
+            font-size: 48px; /* Set a bigger font size */
+            font-weight: bolder;
+            padding-left: 40px; /* Left padding */
+            padding-right: 40px; /* Right padding */
+        }
+        .get-started-button a {
+            display: inline-block;
+            padding: 20px 100px;
+            background-color: #0086AD; /* Blue */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            border-radius: 5px; /* Rounded edges */
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .section-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px; /* Adjust spacing as needed */
+        }
+        .section {
+            flex-basis: calc(28% - 20px); /* 3 sections with spacing */
+            padding: 20px;
+            background-color: #0086AD;
+            color: #ffffff; /* White text */
+            border-radius: 5px;
+            text-align: center;
+        }
+        .split {
+            background-color: #e0e0e0;
+            width: 100%; /* Make the element full width of its container */
+            height: 260px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Horizontally center the content */
+            align-items: center; /* Vertically center the content */
+        }
+        .header {
+            background-color: #0086AD;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .body-content {
+            background-color: #f9f9f9;
+            padding: 75px;
+            color: black;
+        }
+        .boxed {
+            border: 2px solid #000000;
+            border-radius: 10px;
+            width: 700px;
+            height: 350px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+            display: inline-block;
+            text-align: left; /* Reset text alignment */
+        }
+        .footer {
+            background-color: #0086AD;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .squaredecor {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .geometric{
+            width: 400px;
+            height: 350px;
+            position: relative;
+        }
+        .evenspace{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+
+    <title> Home </title>
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="body-content">
+        <div class="body">
+            <br>
+            <br>
+            <p class="center-text">  Easily Access Your School's Courses <br>and Personalize Your Schedule</p>
+            <br><br> <br>
+        </div>
+
+        <div class="get-started-button">
+                <a href="/signup" class="get-started-link">Get Started. It's Free.</a>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="split">
+        <div class="section-container">
+            <div class="section">
+                <h2>Easy Planning</h2>
+                <p>Displays only relevant courses for Students at their grade level</p>
+            </div>
+            <div class="section">
+                <h2>Guided by Prerequisites</h2>
+                <p>Reveals Courses based on Completed requirements</p>
+            </div>
+            <div class="section">
+                <h2>Time Saver</h2>
+                <p>By presenting only relevant courses it eliminates the need to manually go over 200+ courses</p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p> </p>
+    </footer>
+</body>
+
+<script>
+    // Get the .squaredecor elements
+    const squareElements = document.querySelectorAll('.squaredecor');
+
+    // Function to generate a random position within a specified range
+    function getRandomPosition(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Function to generate a random RGB color
+    function getRandomColor() {
+        const red = 20
+        const green = 20
+        const blue = getRandomPosition(40, 200);
+        return `rgba(${red},${green},${blue},0.5)`;
+    }
+
+    // Loop through the elements and set random positions and colors within the container
+    squareElements.forEach((element) => {
+        const containerWidth = 400; // Adjust to the container's width
+        const containerHeight = 350; // Adjust to the container's height
+
+        const randomLeft = getRandomPosition(0, 400); // Adjust as needed
+            const randomTop = getRandomPosition(0, containerHeight - 500); // Adjust as needed
+        const randomColor = getRandomColor();
+
+        element.style.left = `${randomLeft}px`;
+        element.style.top = `${randomTop}px`;
+        element.style.backgroundColor = randomColor;
+    });
+</script>
+</html>

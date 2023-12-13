@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, h1, p, ul {
+        margin: 0;
+        padding: 0;
+        }
+
+        .header {
+            background-color: #0086AD;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .body-content {
+            background-color: #f9f9f9;
+            padding: 100px;
+            color: black;
+        }
+
+        .footer {
+            background-color: #0086AD;
+            text-align: center;
+            padding: 10px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: auto;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <title> Dashboard </title>
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <ul>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="body-content">
+        <h1>This is your schedule:</h1>
+        <br>
+        <table>
+        <tr>
+            <th> </th>
+            <th>9th Grade</th>
+            <th>10th Grade</th>
+            <th>11th Grade</th>
+            <th>12th Grade</th>
+            <th>Credits</th>
+        </tr>
+        {% for row in range(9) %}
+            <tr>
+                {% for col in range(8,14) %}
+                    <td>{{ user_info[col][row] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+    <footer class="footer">
+        <p> </p>
+    </footer>
+</body>
+</html>

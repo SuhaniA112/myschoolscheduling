@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgba(0, 134, 173, 0.7);
+        }
+        .square {
+            border: 2px solid #000000;
+            border-radius: 10px;
+            width: 400px;
+            height: 300px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left; /* Reset text alignment */
+        }
+        .styled-button {
+            background-color: #0086AD;
+            color: white;
+            width: 110px;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .styled-button:hover {
+            background-color: rgba(0, 134, 173, 0.7);
+            color: black;
+            font-weight: bold;
+        }
+        .custom-font-size {
+            font-size: 16px;
+        }
+        .header-font-size {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #0086AD;"></div>
+    <div class="square">
+        <h2 class="header-font-size">Log In</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <input class="custom-font-size" style="margin-bottom: 10px;" type="text" name="username" placeholder="Username" required><br>
+            <input class="custom-font-size" style="margin-bottom: 20px;" type="password" name="password" placeholder="Password" required><br>
+            <button class="styled-button" type="submit">Log In</button>
+        </form>
+        <br>
+        <p>Don't have an account? <a href="signup">Sign up instead.</a></p>
+    </div>
+</body>
+</html>
